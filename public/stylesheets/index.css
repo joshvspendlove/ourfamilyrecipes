@@ -7,7 +7,8 @@
   left: 1;
   top: 1;
   width: 25%; /* Full width */
-  border-radius: 25px;
+  border-radius: 5px;
+  padding: 20px;
    /* Full height */
 }
 
