@@ -138,7 +138,8 @@ app.post('/user/signup', async (req,res) => {
 		{
 			req.session.loggedin = false;
 			req.session.userid = 0;
-			console.log('user exists');
+			req.session.message = "User Exists";
+			res.redirect('/');
 		}
 
 		client.release();
