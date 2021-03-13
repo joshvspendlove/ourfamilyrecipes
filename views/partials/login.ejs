@@ -1,7 +1,7 @@
 <form id='login' class="form-inline my-2 my-lg-0" action="<%if (!loggedin){ %>/user/login<%} else { %>/user/logout<% } %>" method="post">
 <% if (!loggedin) {%>
-<input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" autocomplete="username"/>
-<input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" autocomplete="current-password"/>
+<input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" autocomplete="username" required/>
+<input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" autocomplete="current-password" required/>
 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Login">Login</button>
 
 <%} else {%>
@@ -23,11 +23,15 @@
       </div>
 	  <form  method="post" action="/user/signup">
       <div class="modal-body">
-	  <label for="username">Username</label><br>
-		<input id="username" name="username" type='text'></input>
-		<br>
-		<label for="password">Password</label><br>
-		<input id="password" name="password" type="password"></input>
+		<div class="form-group row">
+			<label class="col-5" for="username">Username: </label>
+			<input class="col-5" id="username" name="username" type='text' required></input>
+		</div>
+		<hr>
+		<div class="form-group row">
+			<label class="col-5" for="password">Password: </label>
+			<input class="col-5" id="password" name="password" type="password" required></input>
+			</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
