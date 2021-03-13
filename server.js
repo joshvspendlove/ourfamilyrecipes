@@ -8,7 +8,7 @@ var dbcon = require("./modules/dbConnection");
 var crypto = require('crypto');
 
 const sleep = util.promisify(setTimeout);
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 8080;
 
 
 var app = express();
