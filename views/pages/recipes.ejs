@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%- include ("../partials/head.ejs") %>
+</head>
+<body>
+<%- include ("../partials/menu.ejs") %>
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalLong">
+  Create Recipe
+</button>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Create Recipe</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	  <form onkeypress="return event.keyCode != 13;" method="post" action="/recipes/add">
+      <div class="modal-body">
+	  <label for="recipe_name">Recipe Name</label><br>
+		<input id="recipe_name" name="recipe_name" type='text'></input>
+		<br>
+		<label for="ingredients">Ingredients</label><br>
+		<input id="ingredients" name="ingredients" type="textarea"></input>
+		<br>
+		<label for="directions">Directions</label><br>
+		<textarea id="directions" name="directions" rows="4" cols="50" onkeypress="if (event.which == 13) {event.stopPropagation();}"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+<ul>
+<% 
+	for (var i = 0; i < recipes.length; i++)
+	{
+		%><li><%=recipes[i].recipename %><br><%=recipes[i].ingredients%><br> <%=recipes[i].recipe%> </li> <%
+	}
+%>
+</ul>
+
+</body>
+</html>

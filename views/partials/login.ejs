@@ -1,0 +1,12 @@
+<form id='login' class="form-inline my-2 my-lg-0" action="<%if (!loggedin){ %>/user/login<%} else { %>/user/logout<% } %>" method="post">
+<% if (!loggedin) {%>
+<input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" autocomplete="username"/>
+<input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" autocomplete="current-password"/>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Login">Login</button>
+<%} else {%>
+<button class="btn btn-outline-danger my-2 my-sm-0" type="submit" value="Logout">Logout</button>
+<%} %>
+<script src="javascript/login.js"></script>
+</form>
+
+
