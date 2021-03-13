@@ -2,10 +2,15 @@
 <html>
 <head>
 <%- include ("../partials/head.ejs") %>
+<link rel="stylesheet" type="text/css" href="stylesheets/index.css"/>
 </head>
 <body>
-<% if (message != "") %> <%= message %>
-<%- include ("../partials/menu.ejs") %>
+<% if (message != "") { %> 
+<div class="message" id="message" onload="displayMessage('<%= message %>')"></div>
 
+<% } %>
+
+<%- include ("../partials/menu.ejs") %>
+<script src="javascript/index.js"></script>
 </body>
 </html>

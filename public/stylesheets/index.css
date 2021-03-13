@@ -1,0 +1,26 @@
+.message {
+  display: none; /* Hidden by default */
+  text-align: center;
+  font-size: 20px;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 1;
+  top: 1;
+  width: 25%; /* Full width */
+  border-radius: 25px;
+   /* Full height */
+}
+
+.fadeout{
+  animation : fadeout 3000ms linear forwards;
+}
+@keyframes fadeout{
+  99%{
+    opacity : 0;
+    height : initial;
+  }
+  100%{
+    opacity : 0;
+    height : 0;
+  }
+}
