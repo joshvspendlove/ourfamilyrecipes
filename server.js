@@ -154,7 +154,7 @@ function generate_pass_hash(password, salt) {
 }
 
 async function does_user_exist(username) {
-	const client = await dbconnect.connect();
+	const client = await dbcon.connect();
 	var result = await client.query("SELECT * FROM users where username = '" + username + "';");
 
 	client.release();
