@@ -10,11 +10,11 @@ const sleep = util.promisify(setTimeout);
 var dbcon = null;
 try 
 {
-	dbcon = require("./modules/dbLocalConnection");
+	dbcon = require("./dbLocalConnection");
 } 
 catch(err)
 { 
-	dbcon = require("./modules/dbConnection");
+	dbcon = require("./dbConnection");
 }
 
 router.post('/login', async (req,res) => {
