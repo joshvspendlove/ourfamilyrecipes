@@ -2,7 +2,15 @@ var express= require('express');
 var router = express.Router();
 var session = require('express-session');
 var cookie = require('cookie');
-var dbcon = require("../modules/dbLocalConnection") || require("../modules/dbConnection");
+var dbcon = null;
+try 
+{
+	dbcon = require("./dbLocalConnection");
+} 
+catch(err)
+{ 
+	dbcon = require("./dbConnection");
+}
 
 router.get('/', (req, res) => {
 	res.locals.user = req.session;
