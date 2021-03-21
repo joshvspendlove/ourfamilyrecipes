@@ -7,8 +7,15 @@ var crypto = require('crypto');
 const util = require('util');
 const sleep = util.promisify(setTimeout);
 
-var dbcon = require("./dbConnection");
-
+var dbcon = null;
+try 
+{
+	dbcon = require("./dbLocalConnection");
+} 
+catch(err)
+{ 
+	dbcon = require("./dbConnection");
+}
 
 router.post('/login', async (req,res) => {
 	try {

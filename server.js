@@ -7,8 +7,15 @@ const loginRouter = require('./modules/loginRouter');
 const familyRouter = require('./modules/familyRouter');
 var crypto = require('crypto');
 const util = require('util');
-var dbcon = require("./modules/dbConnection");
-
+var dbcon = null;
+try 
+{
+	dbcon = require("./modules/dbLocalConnection");
+} 
+catch(err)
+{ 
+	dbcon = require("./modules/dbConnection");
+}
 
 const sleep = util.promisify(setTimeout);
 const PORT = process.env.PORT || 8080;
