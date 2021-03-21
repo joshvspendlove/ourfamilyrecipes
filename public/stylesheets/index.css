@@ -25,3 +25,12 @@
     height : 0;
   }
 }
+
+.recipe {
+	width: 25rem;
+}
+
+.vr {
+	border-left: 1px solid black;
+  height: 2em;
+}

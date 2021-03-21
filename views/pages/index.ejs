@@ -5,14 +5,7 @@
 <link rel="stylesheet" type="text/css" href="stylesheets/index.css"/>
 <script src="javascript/index.js"></script>
 </head>
-<% if (message != "") { %> 
-<body onload="displayMessage('<%= message %>')">
-
-<div class="message" id="message" ></div>
-
-<% } else {%>
 <body>
-<% } %>
 
 <%- include ("../partials/menu.ejs") %>
 

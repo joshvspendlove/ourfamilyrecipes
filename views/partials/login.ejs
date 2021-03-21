@@ -1,49 +1,16 @@
-<form id='login' class="form-inline my-2 my-lg-0" action="<%if (!loggedin){ %>/user/login<%} else { %>/user/logout<% } %>" method="post">
-<% if (!loggedin) {%>
-<input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" autocomplete="username" required/>
-<input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" autocomplete="current-password" required/>
+<div id="message"></div>
+
+<% if (!user.loggedin) {%> 
+<form id='login' class="form-inline my-2 my-lg-0" >
+<input class="form-control mr-sm-2" type="text" id="username" placeholder="Username" autocomplete="username" required/>
+<input class="form-control mr-sm-2" type="password" id="password" placeholder="Password" autocomplete="current-password" required/>
 <button class="btn btn-outline-success my-2 mr-sm-2" type="submit" value="Login">Login</button>
-<button class="btn btn-outline-secondary my-2 mr-sm-2" data-toggle="modal" data-target="#signupmodal" type="button">Signup</button>
+
 
 
 <%} else {%>
-
+<form id='logout' class="form-inline my-2 my-lg-0" >
 <button class="btn btn-outline-danger my-2 my-sm-2" type="submit" value="Logout">Logout</button>
 
 <%} %>
-
 </form>
-
-<% if (!loggedin) { %>
-<div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="signupmodalTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="signupmodalTitle">Sign Up</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-	  <form  method="post" action="/user/signup">
-      <div class="modal-body">
-		<div class="form-group row">
-			<label class="col-5" for="username">Username: </label>
-			<input class="col-5" id="username" name="username" type='text' required></input>
-		</div>
-		<hr>
-		<div class="form-group row">
-			<label class="col-5" for="password">Password: </label>
-			<input class="col-5" id="password" name="password" type="password" required></input>
-			</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Signup</button>
-      </div>
-	  </form>
-    </div>
-  </div>
-</div>
-<% } %>
-
-

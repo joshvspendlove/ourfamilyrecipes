@@ -2,12 +2,15 @@
 <div class="navbar-nav mr-auto mt-2 mt-lg-0">
 <a href="/" class="nav-link">Home</a>
 
-<% if (loggedin) { %>
+<% if (user.loggedin) { %>
 
 <a href="/recipes" class="nav-link">My Recipes</a>
+<a href="/family" class="nav-link">My Family</a>
 
 <% } %>
 </div>
 
 <%- include ("./login.ejs") %>
+<%- include ("./signup.ejs") %>
+<script src="javascript/login.js"></script>
 </nav>
