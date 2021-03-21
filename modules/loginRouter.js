@@ -3,9 +3,19 @@ var router = express.Router();
 var session = require('express-session');
 var cookie = require('cookie');
 var crypto = require('crypto');
-var dbcon = require("../modules/dbLocalConnection") || require("../modules/dbConnection");
+
 const util = require('util');
 const sleep = util.promisify(setTimeout);
+
+var dbcon = null;
+try 
+{
+	dbcon = require("./modules/dbLocalConnection");
+} 
+catch(err)
+{ 
+	dbcon = require("./modules/dbConnection");
+}
 
 router.post('/login', async (req,res) => {
 	try {
