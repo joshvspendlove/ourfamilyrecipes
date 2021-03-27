@@ -1,0 +1,23 @@
+<br>
+<button type="button" class="btn btn-outline-success mx-1 my-1" data-toggle="modal" data-target="#createFamilyModal">Create Family</button>
+<button type="button" class="btn btn-outline-success mx-1 my-1" data-toggle="modal" data-target="#joinFamilyModal">Join Family</button>
+<hr>
+<%- include ("./createFamily.ejs"); %>
+<%- include ("./joinFamily.ejs"); %>
+
+<%
+  user.results.forEach(family =>
+  {
+%>
+  <span><h4> <%= family['family_name'] %> </h4><button type="button" onclick="leaveFamily('<%=family['family_name']%>','<%= family['family_code'] %>');"> Leave Family</button></span>
+  <span><h4>Family Code: <%= family['family_code'] %> </h4></span><hr>
+  <% if(user.userid == family['family_head']) 
+		{ %>
+			<!--button type="button">Delete Family</button-->
+  <% 	} %>
+<%
+  });
+%>
+
+
+<script src="javascript/family.js"></script>

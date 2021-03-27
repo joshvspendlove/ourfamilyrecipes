@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-between sticky-top">
+<div class="navbar-nav mt-2 mt-sm-0">
+
+<% if (user.current_page == "/family") { %>
+
+<a href="/family/recipes" class="nav-link">Family Recipes</a>
+<a href="/family/settings" class="nav-link">Family Settings</a>
+
+<% } 
+   else if (user.current_page == "/recipes") { %>
+   
+   <button type="button" class="btn nav-link" data-toggle="modal" data-target="#exampleModalLong">
+	  Create Recipe
+	</button>
+   
+<% } %>
+</div>
+</nav>

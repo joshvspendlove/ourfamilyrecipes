@@ -1,0 +1,55 @@
+<div class="d-flex p-4 flex-wrap justify-content-around">
+				<%
+				if (recipes.length != 0)
+				{
+					for (var i = 0; i < recipes.length; i++)
+					{
+					%>
+						<div class="card p-3 recipe">
+							<div class="card-header">
+								<h2><%=recipes[i].recipename %></h2>
+							</div>
+							<div class="card-body">
+								<div class="list-group">
+									<div class="list-group-item">
+										<h3>Ingredients</h3>
+										<hr>
+										<ol class="list-group">
+											<%
+											if (typeof(recipes[i].ingredients) != 'undefined')
+											{
+												var ingredients = JSON.parse(recipes[i].ingredients);
+												for (key in ingredients)
+												{
+												%>
+													<li class="list-group-item">
+														<span class="d-flex justify-content-between">
+															<span><%=ingredients[key]['name'] %></span>
+															<span><%= ingredients[key]['qty'] %> <%= ingredients[key]['unit'] %></span>
+														</span>
+													</li>
+												<%
+												}
+											}
+											%>
+										</ol>
+									</div>
+									<div class="list-group-item">
+										<h3>Directions</h3>
+										<hr>
+										<%=recipes[i].recipe%>
+									</div>
+								</div>
+							</div>
+						</div>
+					<%
+					}
+				}
+				else
+				{
+					%>
+						<h2>You have not joined any Families</h2>
+					<%
+				}
+				%>
+			</div>

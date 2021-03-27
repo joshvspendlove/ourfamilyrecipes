@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%- include ("../partials/head.ejs") %>
+<link rel="stylesheet" type="text/css" href="stylesheets/index.css"/>
+<script src="javascript/index.js"></script>
+</head>
+<body>
+
+	<%- include ("../partials/menu.ejs") %>
+	<%- include ("../partials/submenu.ejs") %>
+
+	<div class="content mw-100 mh-100">
+		<% if (user.subpage == "home") { %>
+			<%- include ("../partials/familyHome.ejs") %>
+		<% }
+			else if (user.subpage == "recipes")	{ %>
+
+			<%- include ("../partials/familyRecipes.ejs") %>
+
+		<% }
+			else if (user.subpage == "settings") { %>
+
+			<%- include ("../partials/familySettings.ejs") %>
+
+		<% } %>
+	</div>
+
+
+</body>
+</html>

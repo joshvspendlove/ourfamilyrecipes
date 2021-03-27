@@ -34,3 +34,8 @@
 	border-left: 1px solid black;
   height: 2em;
 }
+
+#errorAlert {
+	width: 50%;
+	margin: auto;
+}
