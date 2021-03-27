@@ -11,49 +11,57 @@
 		<%- include ("../partials/createRecipe.ejs") %>
 			<div class="d-flex p-4 flex-wrap justify-content-around">
 				<%
-					
-				for (var i = 0; i < recipes.length; i++)
+				if (recipes.length > 0) 
 				{
-				%>
-					<div class="card p-3 recipe">
-						<div class="card-header">
-							<h2><%=recipes[i].recipename %></h2>
-						</div>
-						<div class="card-body">
-							<div class="list-group">
-								<div class="list-group-item">
-									<h3>Ingredients</h3>
-									<hr>
-									<ol class="list-group">
-										<% 
-										if (typeof(recipes[i].ingredients) != 'undefined') 
-										{
-											var ingredients = JSON.parse(recipes[i].ingredients);
-											for (key in ingredients)
+					for (var i = 0; i < recipes.length; i++)
+					{
+					%>
+						<div class="card p-3 recipe">
+							<div class="card-header">
+								<h2><%=recipes[i].recipename %></h2>
+							</div>
+							<div class="card-body">
+								<div class="list-group">
+									<div class="list-group-item">
+										<h3>Ingredients</h3>
+										<hr>
+										<ol class="list-group">
+											<% 
+											if (typeof(recipes[i].ingredients) != 'undefined') 
 											{
-											%>
-												<li class="list-group-item">
-													<span class="d-flex justify-content-between">
-														<span><%=ingredients[key]['name'] %></span>
-														<span><%= ingredients[key]['qty'] %> <%= ingredients[key]['unit'] %></span> 
-													</span>
-												</li>
-											<%
+												var ingredients = JSON.parse(recipes[i].ingredients);
+												for (key in ingredients)
+												{
+												%>
+													<li class="list-group-item">
+														<span class="d-flex justify-content-between">
+															<span><%=ingredients[key]['name'] %></span>
+															<span><%= ingredients[key]['qty'] %> <%= ingredients[key]['unit'] %></span> 
+														</span>
+													</li>
+												<%
+												}
 											}
-										}
-										%>
-									</ol>
-								</div>
-								<div class="list-group-item">
-									<h3>Directions</h3>
-									<hr>
-									<%=recipes[i].recipe%>
+											%>
+										</ol>
+									</div>
+									<div class="list-group-item">
+										<h3>Directions</h3>
+										<hr>
+										<%=recipes[i].recipe%>
+									</div>
 								</div>
 							</div>
+								<button type="button" class="btn btn-outline-warning px-2">Update</button>
 						</div>
-							<button type="button" class="btn btn-outline-warning px-2">Update</button>
-					</div>
 				<%
+					}
+				}
+				else
+				{
+					%>
+					<h2>No Recipes to show</h2>
+					<%
 				}
 				%>
 				
