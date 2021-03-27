@@ -21,7 +21,7 @@ function login(event)
 			}
 			else
 			{
-				document.getElementById('message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert">incorrect Username or Password  <button type="button" class="close" data-dismiss="alert" aria-label="Close">    <span aria-hidden="true">&times;</span>  </button></div>'
+				document.getElementById('message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect Username or Password  <button type="button" class="close" data-dismiss="alert" aria-label="Close">    <span aria-hidden="true">&times;</span>  </button></div>'
 			}
 		}
 	};

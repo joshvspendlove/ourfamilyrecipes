@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const loginRouter = require('./modules/loginRouter');
 const familyRouter = require('./modules/familyRouter');
 const recipeRouter = require('./modules/recipeRouter');
+const settingsRouter = require('./modules/settingsRouter');
 var crypto = require('crypto');
 const util = require('util');
 var dbcon = null;
@@ -45,6 +46,8 @@ app.get('/', (req, res) => {
 app.use('/user/auth', loginRouter);
 app.use('/family', familyRouter);
 app.use('/recipes', recipeRouter);
+app.use('/settings', settingsRouter);
+
 
 function logRequest(req, res, next)
 {
