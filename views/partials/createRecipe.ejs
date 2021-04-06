@@ -1,42 +1,60 @@
-
-	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLongTitle">Create Recipe</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>
-		  <form onkeypress="return event.keyCode != 13;" id="saveRecipe">
-		  <div class="modal-body">
-		  <label for="recipe_name">Recipe Name</label><br>
-			<input id="recipe_name" name="recipe_name" type='text' required></input>
-			<br>
-		<hr>
-		<div >
-			<ul id="ingredientList">
-			  <div class="row">
-				<h6 class="col-4">Ingredient</h6>
-				<h6 class="col-3">Quantity</h6>
-				<h6 class="col-3">Unit of Measure</h6>
-			  </div>
-			  <li class="row">
-					  <input class="col-4" id="ingredient_1" name="ingredient_1" type="text" oninput="addNewIngredient(id);" required></input>
-				  <input class="col-3" type="text" id="qty_1" oninput="verifyQty(id);" required></input>
-				  <input class="col-3" type="text" id="unit_1" required></input>
-			  </li>
-			</ul>
-		</div>
-			<br>
-			<label for="directions">Directions</label><br>
-			<textarea id="directions" name="directions" rows="4" cols="50" onkeypress="if (event.which == 13) {event.stopPropagation();}" required></textarea>
-		  </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Save changes</button>
-		  </div>
-		  </form>
-		</div>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title" id="exampleModalLongTitle">Create Recipe</h5>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
 	  </div>
+	  <form onkeypress="return event.keyCode != 13;" id="saveRecipe">
+		  <div class="modal-body">
+			<div class="row justify-content-center">
+				<h4 class="col text-center">Recipe Name</h4>
+			</div>
+			<hr>
+			<div class="row justify-content-center">
+				<input class="col-8" id="recipe_name" name="recipe_name" type='text' required></input>
+			</div>
+			
+			<hr>
+			<div>
+				<div class="text-center">
+				   	<h4>Ingredients</h4>
+					<hr>
+				</div>
+				<ul id="ingredientList">
+			 	   <div class="row text-center">
+					   <h6 class="col-4">Ingredient</h6>
+					   <h6 class="col-3">Quantity</h6>
+					   <h6 class="col-4">Unit of Measure</h6>
+				   </div>
+			 	   <li class="row">
+					  <input class="col-4" id="ingredient_1" name="ingredient_1" type="text" oninput="addNewIngredient(id);" required></input>
+				  	  <input class="col-3" type="text" id="qty_1" oninput="verifyQty(id);" required></input>
+				  	  <input class="col-4" type="text" id="unit_1" required></input>
+			  	   </li>
+			   </ul>
+		   </div>
+		   <hr>
+		   <div>
+			<div class="text-center">
+			   	<h4>Directions</h4>
+				<hr>
+			</div>
+				<br>
+			   <ol id="directionList">
+				   <li>
+					   <input type="text" class="col" id="direction_1" name="directions" oninput="addNewDirection(id);" required></input>
+				   </li>
+			   </ol>
+		   </div>
+		   <div class="modal-footer">
+			   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			   <button type="submit" class="btn btn-primary">Save changes</button>
+		   </div>
+       </div>
+	   </form>
 	</div>
+ </div>
+</div>

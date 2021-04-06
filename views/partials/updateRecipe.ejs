@@ -1,0 +1,87 @@
+<%
+	for (var r = 0; r < recipes.length; r++)
+	{
+%>
+	<div class="modal fade" id="updateRecipeModal_<%=recipes[r].recipeid%>" tabindex="-1" role="dialog" aria-labelledby="updateRecipeModal_<%=recipes[r].recipeid%>" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="updateRecipeModal_<%=recipes[r].recipeid%>">Update Recipe</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <form class="updateRecipe" onkeypress="addRow();" id="updateRecipe_<%=recipes[r].recipeid%>">
+			  <div class="modal-body">
+				<div class="row justify-content-center">
+					<h4 class="col text-center">Recipe Name</h4>
+				</div>
+				<hr>
+				<div class="row justify-content-center">
+					<input class="col-8" id="<%=recipes[r].recipeid%>_recipe_name" name="recipe_name" type='text' value="<%=recipes[r].recipename%>" required></input>
+				</div>
+				
+				<hr>
+				<div>
+					<div class="text-center">
+						<h4>Ingredients</h4>
+						<hr>
+					</div>
+					<ul id="ingredientListUpdate">
+					   <div class="row text-center">
+						   <h6 class="col-4">Ingredient</h6>
+						   <h6 class="col-3">Quantity</h6>
+						   <h6 class="col-4">Unit of Measure</h6>
+					   </div>
+					   
+					<% 
+						var countI = 1;
+						var ingredients = JSON.parse(recipes[r].ingredients);
+						for (key in ingredients) {%>
+						<li class="row">
+						  <input class="col-4" id="<%=recipes[r].recipeid%>_ingredient_<%=key%>"  type="text" oninput="addNewIngredientUpdate(id);" value="<%=ingredients[key].name%>" required></input>
+						  <input class="col-3" type="text" id="<%=recipes[r].recipeid%>_qty_<%=key%>" oninput="verifyQty(id);" value="<%=ingredients[key].qty%>" required></input>
+						  <input class="col-4" type="text" id="<%=recipes[r].recipeid%>_unit_<%=key%>" value="<%=ingredients[key].unit%>" required></input>
+					   </li>
+					<% 		countI++;;
+						} %>
+						<li class="row">
+						  <input class="col-4" id="<%=recipes[r].recipeid%>_ingredient_<%=countI%>"  type="text" oninput="addNewIngredientUpdate(id);" ></input>
+						  <input class="col-3" type="text" id="<%=recipes[r].recipeid%>_qty_<%=countI%>" oninput="verifyQty(id);"  ></input>
+						  <input class="col-4" type="text" id="<%=recipes[r].recipeid%>_unit_<%=countI%>" ></input>
+					   </li>
+				   </ul>
+			   </div>
+			   <hr>
+			   <div>
+				<div class="text-center">
+					<h4>Directions</h4>
+					<hr>
+				</div>
+					<br>
+				   <ol id="directionListUpdate">
+					   <% 
+						var countD = 1;
+						var directions = JSON.parse(recipes[r].recipe);
+						for (key in directions) { %>
+						<li>
+						  <input class="col" id="<%=recipes[r].recipeid%>_direction_<%=key%>" type="text" oninput="addNewDirectionUpdate(id);" value="<%=directions[key].step%>" required></input>
+					   </li>
+					<%		countD++;
+						} %>
+						<li>
+							<input class="col" id="<%=recipes[r].recipeid%>_direction_<%=countD%>" type="text" oninput="addNewDirectionUpdate(id);" ></input>
+						</li>
+				   </ol>
+			   </div>
+			   <div class="modal-footer">
+				   <button type="button" class="btn btn-danger" onclick="deleteRecipe(<%=recipes[r].recipeid%>);">Delete</button>
+				   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				   <button type="button" class="btn btn-primary" onclick="updateRecipe(<%=recipes[r].recipeid%>);">Save changes</button>
+			   </div>
+		   </div>
+		   </form>
+		</div>
+	 </div>
+	</div>
+<% } %>

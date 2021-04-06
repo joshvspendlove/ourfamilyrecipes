@@ -1,7 +1,9 @@
-<div class="d-flex p-4 flex-wrap justify-content-around">
+
 				<%
 				if (recipes.length != 0)
-				{
+				{ %>
+				<div class="d-flex p-4 flex-wrap justify-content-around">
+				<%
 					for (var i = 0; i < recipes.length; i++)
 					{
 					%>
@@ -48,7 +50,8 @@
 				else
 				{
 					%>
-						<h2>You have not joined any Families</h2>
+						<h2>You have not joined a Family</h2>
+						<p>Go to <a href="/family/settings">Family Settings</a> to create or join a family</p>
 					<%
 				}
 				%>
