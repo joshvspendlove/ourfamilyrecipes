@@ -115,7 +115,6 @@ router.get('/recipes', async (req,res) => {
 		var results = await client.query("select recipename, ingredients, recipe from recipes where userid in (select distinct m.member_id from family_members as m where familyid in (select distinct m1.familyid from families as f inner join family_members as m1 on m1.member_id = " + userid + "));");
 		client.release();
 		var recipes = results.rows;
-		console.log(recipes);
 
 		res.render('pages/family', {'recipes':recipes});
 	}

@@ -39,7 +39,24 @@
 									<div class="list-group-item">
 										<h3>Directions</h3>
 										<hr>
-										<%=recipes[i].recipe%>
+										<ol class="list-group">
+											<% 
+											if (typeof(recipes[i].recipe) != 'undefined') 
+											{
+												var directions = JSON.parse(recipes[i].recipe);
+												for (key in directions)
+												{
+												%>
+													<li class="list-group-item">
+														<span class="">
+															<span><%=directions[key]['step'] %></span> 
+														</span>
+													</li>
+												<%
+												}
+											}
+											%>
+										</ol>
 									</div>
 								</div>
 							</div>
@@ -50,8 +67,9 @@
 				else
 				{
 					%>
-						<h2>You have not joined a Family</h2>
-						<p>Go to <a href="/family/settings">Family Settings</a> to create or join a family</p>
+						<h2>You have not joined a family, or there are no recipes to display.</h2>
+						<p>Go to <a href="/family/settings">Family Settings</a> to create or join a Family.</p>
+						<p>Go to <a href="/recipes">My Recipes</a> and select Create to create a new Recipe.</p>
 					<%
 				}
 				%>
